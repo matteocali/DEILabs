@@ -1,0 +1,10 @@
+name: dei_labs
+channels:
+  - anaconda
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - bs4
+  - requests
+prefix: /home/matteocali/miniconda3/envs/dei_labs
