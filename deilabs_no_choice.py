@@ -36,7 +36,7 @@ def arg_parser(argv):
 
 if __name__ == '__main__':
     login = {
-        "remember_web_59ba36addc2b2f9401580f014c7f58ea4e30989d": "eyJpdiI6IlwvNTYrWkdqenNVallmY2QwTkpMNk53PT0iLCJ2YWx1ZSI6IjdoUkFqQlBSZGZUYXJycmtNbEpYUXU0b0lndHBOQVRGQ3p4aWhyNVNBNHc9IiwibWFjIjoiNTAwY2JmYzQ4M2RiM2U1OTQ0YzkzNzBlNTRkMzIwZWQwYTUzYjJmODBhNTcwZGJkZWI3NWVjOTExNmRlMjcwYyJ9"
+        "remember_web_<cookie_name>": "<cookie_value>"
     }
     url = "https://deilabs.dei.unipd.it/laboratory_in_outs"
     
