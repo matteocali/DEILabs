@@ -1,7 +1,7 @@
 # DEILabs
 Script to automatically login on the DEILabs platform. 
 
-![Version](https://img.shields.io/badge/Version-1.0.0-informational?style=flat)
+![Version](https://img.shields.io/badge/Version-1.1.0-informational?style=flat)
 
 ![Linux](https://img.shields.io/badge/Linux-partially%20supported-yellow?style=flat&logo=ubuntu)
 ![GNOME](https://img.shields.io/badge/GNOME-supported-success?style=flat&logo=gnome)
@@ -45,5 +45,5 @@ List of the supported labs
 
 
 ## TO-DO
-- [ ] If connected via RDP do not perform any login (idea: use the $DISPLAY var, if > 3 do not login)
+- [x] If connected via RDP do not perform any login (idea: use the $DISPLAY var, if > 3 do not login)
 - [ ] Add Windows support 
