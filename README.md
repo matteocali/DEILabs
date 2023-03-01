@@ -42,3 +42,8 @@ List of the supported labs
 * lttm
 * signet
 * mian
+
+
+## TO-DO
+- [ ] If connected via RDP do not perform any login (idea: use the $DISPLAY var, if > 3 do not login)
+- [ ] Add Windows support 
