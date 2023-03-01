@@ -34,6 +34,10 @@ else
 	LOCK_STATUS=$(qdbus org.freedesktop.ScreenSaver /ScreenSaver GetActive)  # For KDE
 fi
 
+# Check the used display (if > 3 -> RDP)
+DISP="${DISPLAY:1}"
+DISPCHECK=$(( $DISP <= 3 ))
+
 # Create next file if not already present
 FILE=$SCRIPTPATH/data/next
 if [ ! -e "$FILE" ] ; then
@@ -50,8 +54,10 @@ RANDOM_MIN=$(shuf -i 30-60 -n 1)  # Define a random number of minutes between 30
 
 # Execute the login script and reschedule
 if [ $LOCK_STATUS = false ]; then
-	OUT=$($PYTHONPATH/python3 $SCRIPTPATH/deilabs_no_choice.py -l $LABNAME)
-	notify-send -u critical -i /usr/share/icons/gnome/scalable/places/poi-building.svg DEILabs "$OUT"  # Notify the user
+	if [ $DISPCHECK = 1 ]; then
+		OUT=$($PYTHONPATH/python3 $SCRIPTPATH/deilabs_no_choice.py -l $LABNAME)
+		notify-send -u critical -i /usr/share/icons/gnome/scalable/places/poi-building.svg DEILabs "$OUT"  # Notify the user
+	fi
 	
 	RES=$(( $ATQ <= $(date +%s) ))
 	if [ $RES = 1 ]; then
