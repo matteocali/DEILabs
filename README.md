@@ -31,6 +31,7 @@ Installation guide:
    - the path where the script ![launch.sh](launch.sh) is located
    - the desktop environment to use (GNOME or KDE)
    - the day time for the first daily login attempt
+   - the display variable when connected locally -> on a terminal window run `echo $DISPLAY` and copy the output
 8) add a startup process to execute ![launch.sh](launch.sh) in order to ensure that the script works also after a system reboot
    - open `Startup Applications` (GUI application preinstaled in Ubuntu)
    - add a new entry called "DEILabs" that execute the following command `bash <path_script>/launch.sh`
