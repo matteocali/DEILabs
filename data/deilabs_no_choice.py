@@ -1,5 +1,6 @@
 import sys
 import getopt
+import json
 from bs4 import BeautifulSoup
 from pytimedinput import timedInput
 import requests
@@ -35,9 +36,9 @@ def arg_parser(argv):
 
 
 if __name__ == '__main__':
-    login = {
-        "remember_web_<cookie_name>": "<cookie_value>"
-    }
+    # Load the .json file containing the cookie
+    with open('data/cookie.json') as f:
+        login = json.load(f)
     url = "https://deilabs.dei.unipd.it/laboratory_in_outs"
     
     lab_id = {"lttm": 20, 

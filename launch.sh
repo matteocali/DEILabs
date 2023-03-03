@@ -1,20 +1,7 @@
 #!/bin/bash
 
-
 ### USER DEFINED VAR
-LABNAME=signet
-
-CONDAPATH=~/miniconda3
-ENVNAME=dei_labs
-
-FIRSTHOUR=09
-MINUTES=00
-
-LINUXDESKTOP=gnome  # gnome, kde
-
-SCRIPTPATH=
-
-LOCALDISPLAY=""
+. data/DEILabs.conf
 
 
 ### PREDEFINED VAR (do not modify)
@@ -53,7 +40,7 @@ RANDOM_MIN=$(shuf -i 30-60 -n 1)  # Define a random number of minutes between 30
 # Execute the login script and reschedule
 if [ $LOCK_STATUS = false ]; then
 	if [ $DISPLAY = $LOCALDISPLAY ]; then
-		OUT=$($PYTHONPATH/python3 $SCRIPTPATH/deilabs_no_choice.py -l $LABNAME)
+		OUT=$($PYTHONPATH/python3 $SCRIPTPATH/data/deilabs_no_choice.py -l $LABNAME)
 		notify-send -u critical -i /usr/share/icons/gnome/scalable/places/poi-building.svg DEILabs "$OUT"  # Notify the user
 	fi
 	

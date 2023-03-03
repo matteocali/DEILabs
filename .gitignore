@@ -130,3 +130,7 @@ dmypy.json
 
 # Ignore the next file
 next
+
+# Ignere the setup and cookie files
+data/DEILabs.conf
+data/cookie.json
