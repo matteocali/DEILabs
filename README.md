@@ -35,7 +35,7 @@ Installation guide:
    - the `remember_web_*` cookies's name and value
 7) add a startup process to execute ![launch.sh](launch.sh) in order to ensure that the script works also after a system reboot
    - open `Startup Applications` (GUI application preinstalled in Ubuntu)
-   - add a new entry called "DEILabs" that execute the following command `bash <path_script>/launch.sh`
+   - add a new entry called "DEILabs" that execute the following command `bash <script_path>/launch.sh`
 8) run for the first time the ![launch.sh](launch.sh) script from the temrinal: `bash launch.sh`
 
 ## Supported labs
