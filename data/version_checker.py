@@ -2,7 +2,7 @@ import requests
 import json
 
 
-url = 'https://github.com/caligola25/DEILabs/data/version.json'
+url = 'https://raw.githubusercontent.com/caligola25/DEILabs/main/data/version.json'
 f = requests.get(url)
 # The .json() method automatically parses the response into JSON.
 git_version = f.json()

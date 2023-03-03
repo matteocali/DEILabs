@@ -53,3 +53,4 @@ else
 	echo $(date +%s -d "now + $RANDOM_MIN min") > $FILE
 	at now + $RANDOM_MIN min -f $SCRIPTPATH/launch.sh
 fi
+
