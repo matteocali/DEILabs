@@ -37,13 +37,12 @@ def arg_parser(argv):
 
 if __name__ == '__main__':
     # Load the .json file containing the cookie
-    with open('data/cookie.json') as f:
+    with open("data/cookie.json") as f:
         login = json.load(f)
     url = "https://deilabs.dei.unipd.it/laboratory_in_outs"
     
-    lab_id = {"lttm": 20, 
-              "signet": 47, 
-              "mian": 8}
+    with open("data/labs.json") as f:
+        lab_id = json.load(f)
 
     lab_name = arg_parser(sys.argv)[0]
     if lab_name not in lab_id.keys():

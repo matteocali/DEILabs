@@ -1,15 +1,18 @@
 # DEILabs
+
 Script to automatically login on the DEILabs platform. 
 
 ![Version](https://img.shields.io/badge/dynamic/json?color=informational&label=Version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fcaligola25%2FDEILabs%2Fmain%2Fdata%2Fversion.json)
 
-![Linux](https://img.shields.io/badge/Linux-partially%20supported-yellow?style=flat&logo=ubuntu)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-partially%20supported-yellow?style=flat&logo=ubuntu)
 ![GNOME](https://img.shields.io/badge/GNOME-supported-success?style=flat&logo=gnome)
 ![KDE](https://img.shields.io/badge/KDE-supported-success?style=flat&logo=kde)
 
 ![Windows](https://img.shields.io/badge/Windows-not%20supported-critical?style=flat&logo=windows)
+![Macos](https://img.shields.io/badge/MacOS-not%20supported-critical?style=flat&logo=apple)
 
 ## Installation instruction
+
 Installation guide:
 1) create a conda environment from the ![dei_labs.yml](data/dei_labs.yml) file
 2) if not already installed, install `at` and `qdbus`
@@ -24,27 +27,27 @@ Installation guide:
    - from the option menu select `More tools` > `Web Developer Tools`
    - from the newly opened window select `Storage` > `Cokies`
    - double click on the `value` field of `remember_web_*` and copy the value
-6) paste the value in the login variable of the ![deilabs-no-choice.py](deilabs-no-choice.py) script
-7) open ![launch.sh](launch.sh) script using an editor and set the various user parameteres:
-   - the lab to login to (chosing from the supported ones)
+6) open a terminal instances in the cloned folder and run `bash setup.sh`, follow the instruztion filling all the required data
+   - the lab to login to (choosing from the supported ones)
    - the conda environment to use
-   - the path where the script ![launch.sh](launch.sh) is located
-   - the desktop environment to use (GNOME or KDE)
+   - the desktop environment to use (gnome or kde)
    - the day time for the first daily login attempt
-   - the display variable when connected locally -> on a terminal window run `echo $DISPLAY` and copy the output
-8) add a startup process to execute ![launch.sh](launch.sh) in order to ensure that the script works also after a system reboot
-   - open `Startup Applications` (GUI application preinstaled in Ubuntu)
+   - the `remember_web_*` cookies's name and value
+7) add a startup process to execute ![launch.sh](launch.sh) in order to ensure that the script works also after a system reboot
+   - open `Startup Applications` (GUI application preinstalled in Ubuntu)
    - add a new entry called "DEILabs" that execute the following command `bash <path_script>/launch.sh`
-10) run the ![launch.sh](launch.sh) script from the temrinal
-
+8) run for the first time the ![launch.sh](launch.sh) script from the temrinal: `bash launch.sh`
 
 ## Supported labs
+
 List of the supported labs
 * lttm
 * signet
 * mian
 
-
 ## TO-DO
+
 - [x] If connected via RDP do not perform any login (idea: use the $DISPLAY var, if > 3 do not login)
-- [ ] Add Windows support 
+- [ ] Add more labs
+- [ ] Add Windows support
+- [ ] Add MacOS support

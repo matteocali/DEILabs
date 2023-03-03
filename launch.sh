@@ -41,7 +41,12 @@ RANDOM_MIN=$(shuf -i 30-60 -n 1)  # Define a random number of minutes between 30
 if [ $LOCK_STATUS = false ]; then
 	if [ $DISPLAY = $LOCALDISPLAY ]; then
 		OUT=$($PYTHONPATH/python3 $SCRIPTPATH/data/deilabs_no_choice.py -l $LABNAME)
-		notify-send -u critical -i /usr/share/icons/gnome/scalable/places/poi-building.svg DEILabs "$OUT"  # Notify the user
+		notify-send -u critical -i /usr/share/icons/gnome/scalable/places/poi-building.svg DEILabs "$OUT"  # Notify the user about the login
+		
+		VERSIONMSG=$($PYTHONPATH/python3 $SCRIPTPATH/data/version_checker.py)
+		if [ ! -z "$VERSIONMSG" ]; then
+			notify-send -u normal -i /usr/share/icons/gnome/scalable/places/poi-building.svg DEILabs "$VERSIONMSG"  # Notify the user about the available update
+		fi
 	fi
 	
 	RES=$(( $ATQ <= $(date +%s) ))
