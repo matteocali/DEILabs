@@ -1,7 +1,7 @@
 # DEILabs
 Script to automatically login on the DEILabs platform. 
 
-![Version](https://img.shields.io/badge/Version-1.1.0-informational?style=flat)
+![Version](https://img.shields.io/badge/dynamic/json?color=informational&label=Version&query=%24.version&url=https%3A%2F%2Fraw.githubusercontent.com%2Fcaligola25%2FDEILabs%2Fmain%2Fdata%2Fversion.json)
 
 ![Linux](https://img.shields.io/badge/Linux-partially%20supported-yellow?style=flat&logo=ubuntu)
 ![GNOME](https://img.shields.io/badge/GNOME-supported-success?style=flat&logo=gnome)
