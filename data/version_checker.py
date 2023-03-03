@@ -8,7 +8,7 @@ def versiontuple(v):
 
 if __name__ == '__main__':
     # Load the .json file containing the remote version
-    url = 'https://raw.githubusercontent.com/caligola25/DEILabs/main/data/version.json'
+    url = 'https://raw.githubusercontent.com/matteocali/DEILabs/main/data/version.json'
     f = requests.get(url)
     # The .json() method automatically parses the response into JSON.
     git_version = f.json()["version"]
