@@ -27,7 +27,7 @@ Installation guide:
    - from the option menu select `More tools` > `Web Developer Tools`
    - from the newly opened window select `Storage` > `Cokies`
    - double click on the `value` field of `remember_web_*` and copy the value
-6) open a terminal instances in the cloned folder and run `bash setup.sh`, follow the instruztion filling all the required data
+6) open a terminal instances in the cloned folder and run `bash setup.sh`, follow the instruztion filling all the required data (this command must be executed inside a local session!):
    - the lab to login to (choosing from the supported ones)
    - the conda environment to use
    - the desktop environment to use (gnome or kde)
@@ -35,8 +35,8 @@ Installation guide:
    - the `remember_web_*` cookies's name and value
 7) add a startup process to execute ![launch.sh](launch.sh) in order to ensure that the script works also after a system reboot
    - open `Startup Applications` (GUI application preinstalled in Ubuntu)
-   - add a new entry called "DEILabs" that execute the following command `bash <script_path>/launch.sh`
-8) run for the first time the ![launch.sh](launch.sh) script from the temrinal: `bash launch.sh`
+   - add a new entry called "DEILabs" that execute the following command `cd <script_path> && sh launch.sh`
+8) run for the first time the ![launch.sh](launch.sh) script from the temrinal: `cd <script_path> && sh launch.sh`
 
 ## Supported labs
 

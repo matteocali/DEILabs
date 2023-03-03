@@ -37,9 +37,11 @@ done < $FILE
 
 RANDOM_MIN=$(shuf -i 30-60 -n 1)  # Define a random number of minutes between 30 and 60
 
+CURRENT_DISPLAY=$($PYTHONPATH/python3 -c "import subprocess; print(subprocess.run(['w', '-h', '-s'], stdout=subprocess.PIPE).stdout.decode('utf-8').strip().split()[2])")
+
 # Execute the login script and reschedule
 if [ $LOCK_STATUS = false ]; then
-	if [ $DISPLAY = $LOCALDISPLAY ]; then
+	if [ $CURRENT_DISPLAY = $LOCALDISPLAY ]; then
 		OUT=$($PYTHONPATH/python3 $SCRIPTPATH/data/deilabs_no_choice.py -l $LABNAME)
 		notify-send -u critical -i /usr/share/icons/gnome/scalable/places/poi-building.svg DEILabs "$OUT"  # Notify the user about the login
 		
@@ -51,8 +53,8 @@ if [ $LOCK_STATUS = false ]; then
 	
 	RES=$(( $ATQ <= $(date +%s) ))
 	if [ $RES = 1 ]; then
-		at $FIRSTHOUR:$MINUTES tomorrow -f $SCRIPTPATH/launch.sh  # Add a job for tomorrow only if not already present
 		echo $(date +%s -d "$FIRSTHOUR:$MINUTES tomorrow") > $FILE
+		at $FIRSTHOUR:$MINUTES tomorrow -f $SCRIPTPATH/launch.sh  # Add a job for tomorrow only if not already present
 	fi
 else
 	echo $(date +%s -d "now + $RANDOM_MIN min") > $FILE
