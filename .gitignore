@@ -137,3 +137,6 @@ data/cookie.json
 
 # Ignore MacOS files
 .DS_Store
+
+# Ignore MacOS files
+.DS_Store
