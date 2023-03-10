@@ -64,4 +64,4 @@ if __name__ == '__main__':
             io = s.post(url=form.attrs["action"], json=data)
             dom = BeautifulSoup(io.text, 'html.parser')
             res = dom.find("div", {"class": "alert"}).findChildren("span", recursive=False)
-            print(f"Succesfully loggedein in {lab_name}:", res[0].text)
+            print(f"Succesfully logged in {lab_name}:", res[0].text)
