@@ -43,11 +43,11 @@ CURRENT_DISPLAY=$($PYTHONPATH/python3 -c "import subprocess; print(subprocess.ru
 if [ $LOCK_STATUS = false ]; then
 	if [ $CURRENT_DISPLAY = $LOCALDISPLAY ]; then
 		OUT=$($PYTHONPATH/python3 $SCRIPTPATH/data/deilabs_no_choice.py -l $LABNAME)
-		notify-send -u critical -i /usr/share/icons/gnome/scalable/places/poi-building.svg DEILabs "$OUT"  # Notify the user about the login
+		notify-send -u critical -i $SCRIPTPATH/data/DEILabs_logo_icon.png DEILabs "$OUT"  # Notify the user about the login
 		
 		VERSIONMSG=$($PYTHONPATH/python3 $SCRIPTPATH/data/version_checker.py)
 		if [ ! -z "$VERSIONMSG" ]; then
-			notify-send -u normal -i /usr/share/icons/gnome/scalable/places/poi-building.svg DEILabs "$VERSIONMSG"  # Notify the user about the available update
+			notify-send -u normal -i $SCRIPTPATH/data/DEILabs_logo_icon.png DEILabs "$VERSIONMSG"  # Notify the user about the available update
 		fi
 	fi
 	

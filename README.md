@@ -1,4 +1,5 @@
-# DEILabs
+![DEILabs_logo](dat/DEILabs_logo.png)
+# Auto DEILabs login script
 
 Script to automatically login on the DEILabs platform. 
 
