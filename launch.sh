@@ -35,7 +35,7 @@ while read line; do
     break
 done < $FILE
 
-RANDOM_MIN=$(shuf -i 30-60 -n 1)  # Define a random number of minutes between 30 and 60
+RANDOM_MIN=$(shuf -i 0-30 -n 1)  # Define a random number of minutes between 0 and 30
 
 CURRENT_DISPLAY=$($PYTHONPATH/python3 -c "import subprocess; print(subprocess.run(['w', '-h', '-s'], stdout=subprocess.PIPE).stdout.decode('utf-8').strip().split()[2])")
 
