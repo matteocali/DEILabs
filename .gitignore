@@ -134,9 +134,7 @@ next
 # Ignere the setup and cookie files
 data/DEILabs.conf
 data/cookie.json
-
-# Ignore MacOS files
-.DS_Store
+data/startup.sh
 
 # Ignore MacOS files
 .DS_Store

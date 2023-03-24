@@ -4,7 +4,11 @@ echo ------ INITIAL SETUP OF DEILABS -----
 echo
 
 FILE=./data/DEILabs.conf
+STARTUPFILE=./data/startup.sh
+SCRIPT=$(realpath "$0")
+SCRIPTPATH=$(dirname "$SCRIPT")
 COOKIE=./data/cookie.json
+
 if [ ! -e "$FILE" ] ; then
     touch $FILE
 
@@ -60,15 +64,19 @@ if [ ! -e "$FILE" ] ; then
         echo 	\"$cookiename\": \"$cookievalue\" >> $COOKIE
     	echo } >> $COOKIE
     fi
-
-    script=$(realpath "$0")
-    scriptpath=$(dirname "$script")
-    echo SCRIPTPATH=$scriptpath >> $FILE
+    
+    echo SCRIPTPATH=$SCRIPTPATH >> $FILE  # Add the script path to the conf file
 
     echo LOCALDISPLAY=$DISPLAY >> $FILE
 else
     echo The config file is already present
     echo
+fi
+
+if [ ! -e "$STARTUPFILE" ] ; then  # Generate the startupfile
+    touch $STARTUPFILE
+    echo cd $SCRIPTPATH >> $STARTUPFILE
+    echo sh launch.sh >> $STARTUPFILE
 fi
 
 echo ------ FINISH ------
