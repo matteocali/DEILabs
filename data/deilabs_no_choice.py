@@ -50,6 +50,7 @@ if __name__ == '__main__':
         sys.exit(2)
 
     with requests.Session() as s:
+        s.verify = False
         response = s.get(url, cookies=login)
         dom = BeautifulSoup(response.text, 'html.parser')
         form = dom.find("form", {"id": "edit_laboratory_in_outs_form"})
