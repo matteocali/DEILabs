@@ -50,6 +50,12 @@ List of the supported labs
 - lttm
 - signet
 - mian
+- lab 205
+- lab 206
+- lab 209
+- lab 219
+- lab 224
+- lab 231
 
 ## TO-DO
 
