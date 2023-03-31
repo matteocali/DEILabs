@@ -36,12 +36,14 @@ while read line; do
 done < $FILE
 
 RANDOM_MIN=$(shuf -i 30-60 -n 1)  # Define a random number of minutes between 30 and 60
+RANDOM_SEC=$(shuf -i 0-59 -n 1)  # Define a random number of seconds between 0 and 59
 
 CURRENT_DISPLAY=$($PYTHONPATH/python3 -c "import subprocess; print(subprocess.run(['w', '-h', '-s'], stdout=subprocess.PIPE).stdout.decode('utf-8').strip().split()[2])")
 
 # Execute the login script and reschedule
 if [ $LOCK_STATUS = false ]; then
 	if [ $CURRENT_DISPLAY = $LOCALDISPLAY ]; then
+		sleep "$RANDOM_SEC"s
 		OUT=$($PYTHONPATH/python3 $SCRIPTPATH/data/deilabs_no_choice.py -l $LABNAME)
 		notify-send -u critical -i $SCRIPTPATH/data/DEILabs_logo_icon.png DEILabs "$OUT"  # Notify the user about the login
 		
