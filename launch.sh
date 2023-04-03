@@ -29,7 +29,7 @@ if [ ! -e "$FILE" ] ; then
     echo 0 > $FILE
 fi
 
-# Reade the list time of execution of at
+# Read the last time of execution of at
 while read line; do
     ATQ=$line
     break
