@@ -16,11 +16,11 @@ fi
 
 PYTHONPATH=$ENVPATH/bin
 
-# Set Linux Desktop
-if [ $LINUXDESKTOP = gnome ]; then
-	LOCK_STATUS=$(qdbus org.gnome.ScreenSaver /org/gnome/ScreenSaver org.gnome.ScreenSaver.GetActive)  # For GNOME
+# Check if the display is locked or not
+if loginctl show-session $(loginctl | grep $(whoami) | awk '{print $1}') --property=LockedHint | grep -q "yes"; then                                                                                                             ─╯
+    LOCK_STATUS=true     
 else
-	LOCK_STATUS=$(qdbus org.freedesktop.ScreenSaver /ScreenSaver GetActive)  # For KDE
+    LOCK_STATUS=false   
 fi
 
 # Create next file if not already present
@@ -38,7 +38,7 @@ done < $FILE
 RANDOM_MIN=$(shuf -i 30-60 -n 1)  # Define a random number of minutes between 30 and 60
 RANDOM_SEC=$(shuf -i 0-59 -n 1)  # Define a random number of seconds between 0 and 59
 
-CURRENT_DISPLAY=$($PYTHONPATH/python3 -c "import subprocess; print(subprocess.run(['w', '-h', '-s'], stdout=subprocess.PIPE).stdout.decode('utf-8').strip().split()[2])")
+CURRENT_DISPLAY=$DISPLAY # $($PYTHONPATH/python3 -c "import subprocess; print(subprocess.run(['w', '-h', '-s'], stdout=subprocess.PIPE).stdout.decode('utf-8').strip().split()[2])")
 
 # Execute the login script and reschedule
 if [ $LOCK_STATUS = false ]; then

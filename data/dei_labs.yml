@@ -7,4 +7,6 @@ dependencies:
   - python=3.10
   - bs4
   - requests
+  - pip:
+    - pytimedinput
 prefix: /home/matteocali/miniconda3/envs/dei_labs
